@@ -1,0 +1,43 @@
+{
+  "name": "hackathon-starter",
+  "version": "5.1.2",
+  "description": "A boilerplate for Node.js web applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahat/hackathon-starter.git"
+  },
+  "license": "MIT",
+  "author": "Sahat Yalkabov",
+  "contributors": [
+    "Yashar Fakhari (https://github.com/YasharF)"
+  ],
+  "scripts": {
+    "start": "nodemon --exec babel-node app.js",
+    "lint": "eslint \"**/*.js\"",
+    "test": "mocha --require @babel/register test/*.js --exit"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0"
+  },
+  "engines": {
+    "node": ">=8.11.3",
+    "npm": ">=5.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nock": "^10.0.6",
+    "supertest": "^4.0.2"
+  }
+}
