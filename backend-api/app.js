@@ -6,6 +6,7 @@ const expressValidator = require('express-validator');
 const chalk = require('chalk');
 const router = require('./routes');
 const { handleGlobalError } = require('./middlewares/errorHandler');
+const cors = require('cors');
 
 // Create Express server.
 const app = express();
@@ -17,6 +18,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
+app.use(cors());
 
 // Setting up routes
 app.use(router);

@@ -15,7 +15,7 @@ seoPositionRouter.get('/', validateSeoPositionRequest(), async (req, res, next) 
 		res.json({
 			keyword: keyword,
 			domain: domain,
-			position: await resolvePositionParallelly(keyword, domain)
+			positions: await resolvePositionParallelly(keyword, domain)
 		});
 	} catch(err) {
 		next(err);
