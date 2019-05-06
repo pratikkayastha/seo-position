@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import './App.css';
-import SearchForm from './components/SearchForm';
+import SearchForm from './components/searchform/SearchForm';
 import { resolvePosition } from './helpers/locationResolver';
 
 class App extends PureComponent {

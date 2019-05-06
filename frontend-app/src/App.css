@@ -7,3 +7,7 @@
 .main-header {
   margin-top: 5em;
 }
+
+.clear {
+  clear: both;
+}
