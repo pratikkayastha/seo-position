@@ -3,6 +3,7 @@ import './App.css';
 import SearchForm from './components/searchform/SearchForm';
 import LoadingSpinner from './components/loadingspinner/LoadingSpinner';
 import ErrorMessage from './components/errormessage/ErrorMessage';
+import DomainPosition from './components/domainposition/DomainPosition';
 import { resolvePosition } from './helpers/locationResolver';
 
 class App extends PureComponent {
@@ -10,7 +11,7 @@ class App extends PureComponent {
   state = {
     isLoading: false,
     hasError: false,
-    positions: []
+    positions: null
   }
 
   resolvePosition = async (keyword, domain) => {
@@ -47,6 +48,7 @@ class App extends PureComponent {
         <LoadingSpinner isVisible={this.state.isLoading} />
         <ErrorMessage isVisible={this.state.hasError} 
           errorMessage='There was an error while fetching the domain positions!' />
+        <DomainPosition positions={this.state.positions} />
       </div>
     );
   }
