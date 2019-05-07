@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import './App.css';
 import SearchForm from './components/searchform/SearchForm';
+import LoadingSpinner from './components/loadingspinner/LoadingSpinner';
+import ErrorMessage from './components/errormessage/ErrorMessage';
 import { resolvePosition } from './helpers/locationResolver';
 
 class App extends PureComponent {
@@ -12,6 +14,7 @@ class App extends PureComponent {
   }
 
   resolvePosition = async (keyword, domain) => {
+    console.log("^^^ Resolving positonn...");
     this.setState({
       isLoading: true,
       hasError: false
@@ -21,17 +24,15 @@ class App extends PureComponent {
     console.log(positions);
 
     if (positions) {
-      console.log("Response found! no error!");
       this.setState({
         isLoading: false,
         hasError: false,
         positions: positions
       });
     } else {
-      console.log("ERROR!");
       this.setState({
         isLoading: false,
-        hasError: false
+        hasError: true
       });
     }
   }
@@ -43,6 +44,9 @@ class App extends PureComponent {
         <p>Please enter keyword and domain to resolve position in Google search results.</p>
 
         <SearchForm resolvePosition={this.resolvePosition} />
+        <LoadingSpinner isVisible={this.state.isLoading} />
+        <ErrorMessage isVisible={this.state.hasError} 
+          errorMessage='There was an error while fetching the domain positions!' />
       </div>
     );
   }

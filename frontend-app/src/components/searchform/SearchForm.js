@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
-
 
 class SearchForm extends React.Component {
 
@@ -17,9 +17,9 @@ class SearchForm extends React.Component {
 		this.setState({
 			[name]: value,
 			isDirty: true
+		}, () => {
+			this.validateForm();
 		});
-
-		this.validateForm();
 	}
 
 	validateForm = () => {
@@ -38,9 +38,13 @@ class SearchForm extends React.Component {
 	}
 
 	handleFormSubmit = (event) => {
-		event.preventDefault();
+		this.validateForm();
 
-		this.props.resolvePosition(this.state.keyword, this.state.domain);
+		event.preventDefault();
+		
+		if (this.state.errorFields.length<1 && this.state.isDirty===true) {
+			this.props.resolvePosition(this.state.keyword, this.state.domain);
+		}
 	}
 
 	checkIfFieldsHasError = (fieldName) => {
@@ -52,25 +56,26 @@ class SearchForm extends React.Component {
 			<div className="form-container">
 				<form onSubmit={this.handleFormSubmit}>
 					<div className={`form-block ${this.checkIfFieldsHasError('keyword')?'error':''}`}>
-						<label for="keyword">Keyword</label>
+						<label htmlFor="keyword">Keyword</label>
 						<input type="text" value={this.state.keyword} 
 							onChange={this.handleValueChange} 
-							onBlur={this.validateForm}
-							name="keyword"/>
+							name="keyword"
+							data-testid='keyword'/>
 					</div>
 
 					<div className={`form-block ${this.checkIfFieldsHasError('domain')?'error':''}`}>
-						<label for="domain">Domain</label>
+						<label htmlFor="domain">Domain</label>
 						<input type="text" value={this.state.domain} 
 							onChange={this.handleValueChange} 
-							onBlur={this.validateForm}
-							name="domain"/>
+							name="domain"
+							data-testid='domain'/>
 					</div>
 
 					<div className="form-block">
 						<label>&nbsp;</label>
 						<input type="submit" value="Get Positions" 
-						className={`${this.state.errorFields.length>0 || this.state.isDirty===false ? 'disabled' : ''}`}/>
+						className={`${this.state.errorFields.length>0 || this.state.isDirty===false ? 'disabled' : ''}`}
+						data-testid='submit'/>
 					</div>
 
 					<div className="clear"></div>
@@ -79,5 +84,9 @@ class SearchForm extends React.Component {
 		);
 	}
 }
+
+SearchForm.propTypes = {
+	resolvePosition: PropTypes.func
+};
 
 export default SearchForm;

@@ -1,0 +1,11 @@
+.error-container {
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.error-container p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	color: #ff0000;
+}
