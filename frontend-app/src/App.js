@@ -42,7 +42,7 @@ class App extends PureComponent {
 
   render() {
     return (
-      <div className="app-container">
+      <div className="app-container" data-testid='app-container'>
         <h1 className="main-header">Google Search Result Positions</h1>
         <p>Please enter keyword and domain to resolve position in Google search results.</p>
 
