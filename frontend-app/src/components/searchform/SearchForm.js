@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
+/*
+	Component for the search form, this component handles validation as well
+*/
 class SearchForm extends React.Component {
 
 	state = {

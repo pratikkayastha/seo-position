@@ -6,6 +6,9 @@ import ErrorMessage from './components/errormessage/ErrorMessage';
 import DomainPosition from './components/domainposition/DomainPosition';
 import { resolvePosition } from './helpers/locationResolver';
 
+/**
+  Main App component
+*/
 class App extends PureComponent {
 
   state = {
@@ -15,15 +18,14 @@ class App extends PureComponent {
   }
 
   resolvePosition = async (keyword, domain) => {
-    console.log("^^^ Resolving positonn...");
     this.setState({
       isLoading: true,
-      hasError: false
+      hasError: false,
+      positions: null
     });
 
     const positions = await resolvePosition(keyword, domain);
-    console.log(positions);
-
+    
     if (positions) {
       this.setState({
         isLoading: false,

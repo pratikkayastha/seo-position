@@ -6,19 +6,35 @@
 .position-container {
 	margin: 20px auto;
 	text-align: center;
+	padding: 0;
 }
 
 .position-block {
-	display: inline-block;
-	width: 50;
-	text-align: center;
-	padding: 10px;
 	border: 1px solid #3498db;
-	border-radius: 5px;
+	background: #3498db;
+	border-radius: 50%;
+	margin: 10px auto;
+	display: inline-block;
+	height: 60px;
+	width: 60px;
+	text-align: center;
+	vertical-align: middle;
+	color: #FFFFFF;
 	margin: 10px;
 }
 
 .position-block h3 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 22px;
+	margin: 0;
+	line-height: 50px;
+}
+
+.position-block h3::before {
+	content: '#';
+	display: inline-block;
+	color: #FFFFFF;
+	font-size: 16px;
+	vertical-align: super;
+	margin-right: 2px;
 }

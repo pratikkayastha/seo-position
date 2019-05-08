@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 import './style.css';
 
+/*
+	Component to render loading spinner
+*/
 function LoadingSpinner(props) {
 	const { isVisible } = props;
 

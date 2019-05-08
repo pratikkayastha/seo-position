@@ -2,6 +2,10 @@ import React from "react";
 import PropTypes from 'prop-types';
 import './style.css';
 
+/**
+	Component to render positions
+	Currently renders a simple list with position but can be extended to display other information
+*/
 function DomainPosition(props) {
 	const { positions } = props;
 
@@ -10,16 +14,15 @@ function DomainPosition(props) {
 			<div className="position-result-container">
 				<h4>Domain was found at following locations.</h4>
 
-				<div className="position-container" data-testid='positions-container'>
+				<ul className="position-container" data-testid='positions-container'>
 					{
 						positions.map(position => (
-							<div className="position-block" key={`position-${position}`}>
+							<li className="position-block" key={`position-${position}`}>
 								<h3>{position}</h3>
-							</div>
+							</li>
 						))
 					}
-					<div className="clear"></div>
-				</div>
+				</ul>
 			</div>
 		);
 	} else if (positions!=null && positions.length<1) {

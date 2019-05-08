@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 import './style.css';
 
+/*
+	Component to render error message
+*/
 function ErrorMessage(props) {
 	const { isVisible, errorMessage } = props;
 
