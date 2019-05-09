@@ -8,3 +8,5 @@ Please refer to README of each of these projects for more details.
 Run the following in command prompt
 `docker-compose up -d`
 This will start the backend and frontend app on their individual docker containers. You can then browse to the frontend app by browsing localhost:3000.
+
+This app was a part of a coding challenge where the requirement was not to use any library to parse HTML.
